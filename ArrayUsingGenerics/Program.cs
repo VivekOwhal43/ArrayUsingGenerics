@@ -16,9 +16,11 @@ namespace ArrayUsingGenerics
             // arrayDemo.toPrint<double>(doubleArray);
             // arrayDemo.toPrint<int>(intArray);
             // arrayDemo.toPrint<char>(charArray);
-            int maxNum = GenMax.MaxInteger(11,13,12);
-            Console.WriteLine($"Maximum Value: {maxNum}");
-            
+
+            int maxInt = GenMax.MaxInteger(11, 13, 12);             //passing values as a parameter to method
+            Console.WriteLine($"Maximum Value: {maxInt}");          // printing maximum integer value
+            float maxFloat = GenMax.MaxFloat(1.1f, 3.4f, 2.1f);     //passing float values as parameters
+            Console.WriteLine($"Maximum Value: {maxFloat}");        //print maximum float
         }
     }
 }

@@ -20,9 +20,31 @@ namespace ArrayUsingGenerics
 
      internal class GenMax //where T : IComparable
     {
-        public int frstVal, secVal, thrdVal;
-
         public static int MaxInteger(int frstVal, int secVal, int thrdVal)
+        {
+            // if (frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) >= 0 && frstVal.CompareTo(thrdVal > 0) || frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) >= 0)
+            // {
+            //     return frstVal;
+            // }
+
+            if (frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) >= 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) >= 0)
+            {
+                return frstVal; // Retrun first value as maximum
+            }
+
+            if (secVal.CompareTo(frstVal)>0 && secVal.CompareTo(thrdVal)>0 || secVal.CompareTo(frstVal)>=0 && secVal.CompareTo(thrdVal)>0 || secVal.CompareTo(frstVal)>0 && secVal.CompareTo(thrdVal)>=0)
+            {
+                return secVal; // Retrun second value as maximum
+            }
+
+            if (thrdVal.CompareTo(frstVal)>0 && thrdVal.CompareTo(secVal) >0 || thrdVal.CompareTo(frstVal)>=0 && thrdVal.CompareTo(secVal) >0 || thrdVal.CompareTo(frstVal)>0 && thrdVal.CompareTo(secVal) >=0)
+            {
+                return thrdVal; // Retrun third as maximum
+            }
+            return frstVal;
+        }
+
+        public static float MaxFloat(float frstVal, float secVal, float thrdVal)
         {
             // if (frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) >= 0 && frstVal.CompareTo(thrdVal > 0) || frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) >= 0)
             // {
