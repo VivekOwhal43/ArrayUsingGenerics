@@ -21,6 +21,8 @@ namespace ArrayUsingGenerics
             Console.WriteLine($"Maximum Value: {maxInt}");          // printing maximum integer value
             float maxFloat = GenMax.MaxFloat(1.1f, 3.4f, 2.1f);     //passing float values as parameters
             Console.WriteLine($"Maximum Value: {maxFloat}");        //print maximum float
+            string maxString = GenMax.MaxString("Banana","Apple","Strawberry");
+            Console.WriteLine($"Maximum Value: {maxString}");
         }
     }
 }
