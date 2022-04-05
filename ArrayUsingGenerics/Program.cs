@@ -7,22 +7,12 @@ namespace ArrayUsingGenerics
     {
         static void Main(string[] args)
         {
-            // double[] doubleArray = { 1.0, 1.1, 1.2, 1.3, 1.4, 1.5 };
-            // int[] intArray = { 1, 2, 3, 4, 5, 6 };
-            // char[] charArray = { 'V', 'I', 'V', 'E', 'K' };
-            //  
-            // ArrayDemo arrayDemo = new ArrayDemo();
-            // 
-            // arrayDemo.toPrint<double>(doubleArray);
-            // arrayDemo.toPrint<int>(intArray);
-            // arrayDemo.toPrint<char>(charArray);
-
-            int maxInt = GenMax.MaxInteger(11, 13, 12);             //passing values as a parameter to method
+            int maxInt = GenMax<int>.MaxVal(11, 13, 12);             //passing values as a parameter to method
             Console.WriteLine($"Maximum Value: {maxInt}");          // printing maximum integer value
-            float maxFloat = GenMax.MaxFloat(1.1f, 3.4f, 2.1f);     //passing float values as parameters
+            float maxFloat = GenMax<float>.MaxVal(1.1f, 3.4f, 2.1f);     //passing float values as parameters
             Console.WriteLine($"Maximum Value: {maxFloat}");        //print maximum float
-            string maxString = GenMax.MaxString("Banana","Apple","Strawberry");
-            Console.WriteLine($"Maximum Value: {maxString}");
+            string maxString = GenMax<string>.MaxVal("Banana","Apple","Strawberry");       //passing values as a parameter to method
+            Console.WriteLine($"Maximum Value: {maxString}");        // printing maximum string length value
         }
     }
 }
