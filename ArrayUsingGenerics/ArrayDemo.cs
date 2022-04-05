@@ -1,49 +1,40 @@
 using System;
+using System.Diagnostics;
 using System.Security.AccessControl;
 
 namespace ArrayUsingGenerics
 {
-    public class ArrayDemo
+    public class GenMax<T> where T : IComparable
     {
-        // double[] doubleArray = { 1.0, 1.1, 1.2, 1.3, 1.4, 1.5 };
-        // Creating Generic Method to print elements in Array
-        public void toPrint<T>(T[] inputArray)
+        public T[] value;
+
+        public GenMax(T[] value)
         {
-            Console.WriteLine(" ========== Array Result =========== ");
-            foreach (var element in inputArray)
-            {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine(" ================================== ");
+            this.value = value;
         }
-    }
 
-    internal class GenMax<T> where T : IComparable
-    {
-        public T frstVal, secVal,  thrdVal;
-        public GenMax(T frstVal, T secVal, T thrdVal)       // Constructor for GenMaxClass
+        public T[] Sort(T[] values)
         {
-            this.frstVal= frstVal;
-            this.secVal =secVal;
-            this.thrdVal = thrdVal;
+            Array.Sort(values);
+            return values;
         }
-        public static T MaxVal(T frstVal, T secVal, T thrdVal)      // Generinc method for getting maximum values
+
+        public T MaxValue(params T[] values)
         {
-            if (frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) >= 0 && frstVal.CompareTo(thrdVal) > 0 || frstVal.CompareTo(secVal) > 0 && frstVal.CompareTo(thrdVal) >= 0)
-            {
-                return frstVal; // Retrun first value as maximum
-            }
+            var sortedValues = Sort(values);
+            return sortedValues[^1];
+        }
 
-            if (secVal.CompareTo(frstVal) > 0 && secVal.CompareTo(thrdVal) > 0 || secVal.CompareTo(frstVal) >= 0 && secVal.CompareTo(thrdVal) > 0 || secVal.CompareTo(frstVal) > 0 && secVal.CompareTo(thrdVal) >= 0)
-            {
-                return secVal; // Retrun second value as maximum
-            }
+        public T maxMethod()
+        {
+            var max = MaxValue(this.value);
+            return max;
+        }
 
-            if (thrdVal.CompareTo(frstVal) > 0 && thrdVal.CompareTo(secVal) > 0 || thrdVal.CompareTo(frstVal) >= 0 && thrdVal.CompareTo(secVal) > 0 || thrdVal.CompareTo(frstVal) > 0 && thrdVal.CompareTo(secVal) >= 0)
-            {
-                return thrdVal; // Retrun third as maximum
-            }
-            return frstVal;
-        }    
+        public void PrintMaxValue()
+        {
+            var max = MaxValue(this.value);
+            Console.WriteLine("Maximum Value is :" + max);
+        }
     }
 }
